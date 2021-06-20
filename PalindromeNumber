@@ -2,11 +2,18 @@
 public class PalindromeNumber {
 
 	public boolean isPalindrome(int x) {
-        String s1 = String.valueOf(x);
-        String s2 = "";
-        for (int i = s1.length() - 1; i >= 0; i--){
-            s2 += s1.charAt(i);
+//        String s1 = String.valueOf(x);
+//        String s2 = "";
+//        for (int i = s1.length() - 1; i >= 0; i--){
+//            s2 += s1.charAt(i);
+//        }
+//        return s1.equals(s2);
+        int num = x;
+        int rev_num = 0;
+        while (x > 0){
+            rev_num = rev_num * 10 + (x % 10);
+            x = x / 10;
         }
-        return s1.equals(s2);
+        return (num == rev_num);
     }
 }
