@@ -2,14 +2,14 @@
 public class DefangIPAddress {
 
 	public String defangIPaddr(String address) {
-		String output = "";
+		final StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < address.length(); i++) {
-			if (address.charAt(i) == '.') {
-				output += "[.]";
-			} else {
-				output += address.charAt(i);
-			}
+			if (address.charAt(i) == '.')
+				sb.append("[.]");
+			else
+				sb.append(address.charAt(i));
 		}
-		return output;
+
+		return sb.toString();
 	}
 }
