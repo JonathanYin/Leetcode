@@ -12,7 +12,7 @@ int main() {
     vector<string> words;
 
     int start = 0;
-    int end;
+    size_t end;
     string token;
     vector<string> out;
 
