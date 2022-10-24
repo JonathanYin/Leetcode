@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -51,5 +52,26 @@ int main() {
         // print indices at which substr s2 occurs
         cout << positions[i] << endl;
     }
+
+    // stringstream testing
+    string s = "+50years";
+    stringstream ss(s);
+    
+    char mathOperator;
+    int value;
+    string timeUnit;
+    ss >> mathOperator >> value >> timeUnit;
+    cout << mathOperator<< " " << value << " " << timeUnit << endl;
+
+    stringstream ns;
+    ns << 5;
+    ns << "hi";
+
+    int n;
+    string str;
+
+    ns >> n >> str;
+    // extracts int and string from stringstream ns
+    cout << n << " " << str << endl;
     return 0;
 }
