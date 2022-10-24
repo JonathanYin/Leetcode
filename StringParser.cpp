@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+    // parse string by delimiter
     string text = "Sphinx of black quartz, judge my vow.";
     string delim = " ";
     vector<string> words;
@@ -31,19 +32,24 @@ int main() {
     for (int i = 0; i < out.size(); i++) {
         cout << out[i] << " ";
     }
+    cout << endl;
 
-    // int pos = 0;
-    // string token;
-    // while ((pos = text.find(delim)) != string::npos){
-    //     // words.push_back(text.substr(0, pos));
-    //     // text.erase(0, pos + delim.length());
-    //     token = text.substr(0, pos);
-    //     words.push_back(token);
-    //     text.erase(0, pos + delim.length());
-    // }
-    // cout << text << endl;
-    // for (auto i : words){
-    //     cout << i << endl;
-    // }
+    // find all indices of substring within string
+    string s1 = "an apple applied for an appointment";
+    string s2 = "app";
+    vector<int> positions; 
+    // vector to store positions at which the substr s2 is found within s1
+    size_t startPos = 0;
+
+    while ((startPos = s1.find(s2, startPos)) != string::npos) {
+        // while not at end of string
+        positions.push_back(startPos);
+        startPos ++;
+    }
+
+    for (int i = 0; i < positions.size(); i++) {
+        // print indices at which substr s2 occurs
+        cout << positions[i] << endl;
+    }
     return 0;
 }
