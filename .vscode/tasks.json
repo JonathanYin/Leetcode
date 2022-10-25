@@ -8,6 +8,7 @@
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
+                "-std=c++11",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
