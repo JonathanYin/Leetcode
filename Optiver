@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 int DaysInMonth(int month, int year);
 // Do not edit above this line. It is only shown so you can see the function signature.
 /*
