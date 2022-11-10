@@ -3,14 +3,26 @@ import java.util.ArrayList;
 
 public class Permutations {
 
-	public List<List<Integer>> permute(int[] nums) {
+	public static void main(String[] args) {
+		int[] nums = {1, 2, 3};
+		List<List<Integer>> output = permute(nums);
+		for (int i = 0; i < output.size(); i++){
+			for (int j = 0; j < output.get(i).size(); j++){
+				System.out.print(output.get(i).get(j));
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static List<List<Integer>> permute(int[] nums) {
 		List<List<Integer>> list = new ArrayList<>();
 		// Arrays.sort(nums); // not necessary
 		backtrack(list, new ArrayList<>(), nums);
 		return list;
 	}
 
-	private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums) {
+	private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums) {
 		if (tempList.size() == nums.length) {
 			list.add(new ArrayList<>(tempList));
 		} else {
