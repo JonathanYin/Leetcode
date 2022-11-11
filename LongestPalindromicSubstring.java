@@ -1,5 +1,5 @@
 
-public class LargestPalindromicSubstring {
+public class LongestPalindromicSubstring {
 
 	public String longestPalindrome(String s) {
 
