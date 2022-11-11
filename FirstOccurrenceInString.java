@@ -1,5 +1,5 @@
 
-public class strStr {
+public class FirstOccurrenceInString {
 
 	public int strStr(String haystack, String needle) {
 		if (needle.length() == 0) {
