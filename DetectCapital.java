@@ -1,4 +1,5 @@
-public boolean detectCapitalUse(String word) {
+public class DetectCapital {
+    public boolean detectCapitalUse(String word) {
         boolean prevCapital = false;
         boolean firstCapital = false;
         for (int i = 0; i < word.length(); i++){
@@ -41,3 +42,5 @@ public boolean detectCapitalUse(String word) {
         }
         return true;
     }
+    
+}
