@@ -24,8 +24,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
             map[nums[i]] = i;
             // add key value pair to hashmap
         }
-        return output;
-    }
+    return output;
+}
 
 int main () {
     vector<int> test{2, 7, 11, 15};
