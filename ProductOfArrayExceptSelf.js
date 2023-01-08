@@ -6,15 +6,15 @@ var productExceptSelf = function(nums) {
     // calculate prefix products to left of element
     for (let i = 0; i < nums.length; i++) {
         if (i > 0) {
-            left = left * nums[i - 1];
+            left *= nums[i - 1];
         }
         arr[i] = left;
     }
-    
+
     // calculate postfix products to right of element
     for (let i = nums.length - 1; i >= 0; i--) {
         if (i < nums.length - 1) {
-            right = right * nums[i + 1];
+            right *= nums[i + 1];
         }
         arr[i] *= right;
     }
