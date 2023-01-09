@@ -1,0 +1,121 @@
+.container {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.container .card{
+    width: 480px;
+    height: 298px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-bottom-width: 2px;
+    border-radius: 16px;
+    margin: 25px;
+}
+ 
+.container .card .details {
+    display: grid;
+    padding: 25px 15px 15px 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    grid-auto-rows: 20px;
+}
+ 
+.container .card .details .hrt-logo {
+    height: 50px;
+    width: auto;
+    grid-column: 1;
+    grid-row: 1;
+}
+ 
+.container .card .details .title {
+    font-size: 14px;
+    color: #949494;
+    padding: 0px 4px;
+}
+ 
+.container .card .details .name-number .title {
+    letter-spacing: .05em;
+    font-size: 18px;
+    color: #000;
+    padding: 0px 4px;
+}
+
+.container .card .details .number {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: #262626;
+    padding: 2px 4px;
+    font-family: monospace
+}
+ 
+.container .card .details .number:hover {
+    background: #fafafa;
+    border-radius: 8px;
+    cursor: pointer;
+}
+ 
+.container .card .details .name-number {
+    grid-column: 1/5;
+    grid-row: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+ 
+.container .card .details .copied {
+    font-size: 14px;
+    line-height: 17px;
+    color: #5e5e5e;
+    padding: 2px 4px;
+}
+ 
+.container .card .details .expiration {
+    grid-column: 1;
+    grid-row: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+ 
+.container .card .details .cvv {
+    grid-column: 2;
+    grid-row: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+ 
+.container .card .details .visa-logo {
+    height: 50px;
+    width: auto;
+    justify-self: end;
+    grid-column: 4;
+    grid-row: 8;
+}
+ 
+.container .lock-button {
+    color: rgba(255, 130, 0);
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 6px 12px;
+}
+ 
+.container .lock-button:hover {
+    background: rgba(255, 130, 0, 0.12);
+    cursor: pointer;
+}
