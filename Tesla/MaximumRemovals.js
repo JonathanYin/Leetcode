@@ -1,6 +1,12 @@
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
 
+/*
+* Given a string S of uppercase alphabetical letters. One 'removal' consists of removing six letters
+* from the string S, with the letters being that of the word 'BANANA'. One removal must consist of 
+* removing these six letters exactly. Return the maximum number of removals that can be applied to S. 
+* i.e. S = "ABNNAXXA", after one removal = "XX", result = 1
+*/
 function solution(S) {
     // keep track of the number of each occurrence of the letters, 'A', 'B', and 'N'
     let count_A = 0;

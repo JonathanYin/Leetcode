@@ -1,6 +1,11 @@
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
 
+/*
+* Given a three-digit integer N, and an integer K, return the maximum three-digit number that can be created
+* if K represents the number of (+1) operations that can be made on any given digit of N. 
+* i.e. N = 521, K = 9, result = 971 (since you add to the hundred's place 4 times, and the ten's place 5 times)
+*/
 function solution(N, K) {
     // convert input array into string array of digits
     let str = N.toString();
