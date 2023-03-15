@@ -5,6 +5,16 @@
  * The function accepts INTEGER_ARRAY server as parameter.
  */
 
+/* 
+ * Given: an array of integers, representing a threads being opened, or requests
+ * If the integer is positive, it corresponds to the number of threads being opened.
+ * Else, the integer is -1, and represents a request call.
+ * If the current number of available threads is 0 when a request is made, 
+ * then the thread is dropped. Else, add to the number of available threads
+ * by the number of threads opened. 
+ * Return: number of dropped threads
+*/
+
 function countDroppedRequests(server) {
     // Write your code here
     let numThreads = 0;

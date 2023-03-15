@@ -5,6 +5,14 @@
  * The function accepts INTEGER_ARRAY arr as parameter.
  */
 
+/* 
+ * Given: an array of n integers
+ * Repeat the following operation until there is only one element remaining in the array:
+ * Remove the min and max of the current array, add their sum back to the array, and add
+ * Math.ceil(sum / (max - min + 1)) to the total cost of the operations. 
+ * Return: total cost
+*/
+
 function findTotalCost(arr) {
     let totalCost = 0;
     // sort array in ascending order
