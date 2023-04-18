@@ -1,0 +1,87 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+class Result {
+
+    /*
+     * Complete the 'getMinimumOperations' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY executionTime
+     *  2. INTEGER x
+     *  3. INTEGER y
+     */
+
+    public static int getMinimumOperations(List<Integer> executionTime, int x, int y) {
+        // Write your code here
+        int operations = 0;
+        PriorityQueue<Integer> remainingJobs = new PriorityQueue<Integer>(Comparator.reverseOrder());
+        remainingJobs.addAll(executionTime);
+        
+        while (!remainingJobs.isEmpty()) {
+            int majorJobExecutionTime = remainingJobs.poll();
+            
+            majorJobExecutionTime -= x;
+            
+            PriorityQueue<Integer> updatedJobs = new PriorityQueue<Integer>(Comparator.reverseOrder());
+            
+            while (!remainingJobs.isEmpty()) {
+                int jobExecutionTime = remainingJobs.poll() - y;
+                if (jobExecutionTime > 0) {
+                    updatedJobs.add(jobExecutionTime);
+                }
+            }
+            
+            if (majorJobExecutionTime > 0) {
+                updatedJobs.add(majorJobExecutionTime);
+            }
+            
+            remainingJobs = updatedJobs;
+            operations++;
+        }
+        return operations;
+    }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int executionTimeCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> executionTime = IntStream.range(0, executionTimeCount).mapToObj(i -> {
+            try {
+                return bufferedReader.readLine().replaceAll("\\s+$", "");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        })
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        int x = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int y = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int result = Result.getMinimumOperations(executionTime, x, y);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
