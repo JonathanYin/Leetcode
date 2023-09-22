@@ -4,11 +4,11 @@
  */
 var numPairsDivisibleBy60 = function(time) {
     let count = 0;
-    // initialize hashmap to store remainders
+    // initialize hashmap to store complements and their counts
     let map = new Map();
     for (let i = 0; i < time.length; i++) {
         let remainder = time[i] % 60;
-        // set complement to the amount needed to dd up to 60
+        // set complement to the amount needed to sum up to 60
         let complement = (60 - remainder) % 60;
         // if the complement exists in the map, add the number of times it appears to the count
         if (map.has(complement)) {
