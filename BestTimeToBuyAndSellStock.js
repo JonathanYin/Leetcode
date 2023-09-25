@@ -3,19 +3,19 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    // keep track of highest price to sell at 
-    let sellIndex = prices.length - 1;
+    // set local max to the last element, and iterate backwards to find the local min
+    let localMax = prices.at(-1);
+    // initialize current max profit to 0
     let profit = 0;
-
+    // start iterating backwards from the second to last element
     for (let i = prices.length - 2; i >= 0; i--) {
-        // if the current price is greater than the sell price, update the sell price
-        if (prices[i] > prices[sellIndex]) {
-            sellIndex = i;
+        // if the current price is greater than the local max, set the new local max
+        if (prices[i] >= localMax) {
+            localMax = prices[i];
         }
-        // if the current price is less than the sell price, calculate the profit
-        else if (prices[i] < prices[sellIndex]) {
-            // if the profit at the current index is greater than the current profit, update it
-            profit = Math.max(profit, prices[sellIndex] - prices[i]);
+        // else, take the difference between the two, and update max if profit is higher
+        else {
+            profit = Math.max(profit, localMax - prices[i]);
         }
     }
     return profit;
