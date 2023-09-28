@@ -6,12 +6,12 @@ const minMeetingRooms = (meetings) => {
     let end = [...meetings].sort((a, b) => a[1] - b[1]);
     let rooms = 0;
 
-    // init two pointers
+    // init pointer for end array
     let j = 0;
 
     // loop through meetings in order
     for (let i = 0; i < meetings.length; i++) {
-        // if the start time is less than the end time of the previous meeting, we need a new room
+        // if the start time is less than the end time of the meeting at the end pointer, we need a new room
         if (start[i][0] < end[j][1]) {
             rooms++;
         }
