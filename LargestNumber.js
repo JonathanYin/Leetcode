@@ -3,7 +3,7 @@
  * @return {string}
  */
 var largestNumber = function(nums) {
-    // sort via comparator function
+    // sort via comparator function in descending order
     nums.sort(comparator);
 
     // concatenate the numbers for output
@@ -15,7 +15,7 @@ var largestNumber = function(nums) {
     return result[0] === "0" ? "0" : result;
 };
 
-// helper function to compare the concatenations of two numbers
+// helper function to compare the concatenations of two numbers, and sort them in descending order
 function comparator(x, y) {
     let a = x.toString();
     let b = y.toString();
@@ -23,6 +23,7 @@ function comparator(x, y) {
     let str1 = a + b;
     let str2 = b + a;
 
+    // compare the two strings lexicographically
     if (str1 > str2) {
         return -1;
     }
