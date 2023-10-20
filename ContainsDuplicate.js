@@ -1,5 +1,5 @@
 var containsDuplicate = function(nums) {
-    let hashset = new Set();
+    let hashtable = new Set();
     for (let i = 0; i < nums.length; i++) {
         if (hashtable.has(nums[i])) {
             return true;
