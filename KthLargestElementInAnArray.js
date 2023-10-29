@@ -8,8 +8,9 @@ var findKthLargest = function(nums, k) {
     // to the left of pivot are less than pivot and all elements to the right of pivot are greater than pivot
     const partition = (left, right, pivotIndex) => {
         const pivot = nums[pivotIndex];
-        // move pivot to end
+        // swap element at pivotIndex with element at right, using ES6 destructuring
         [nums[pivotIndex], nums[right]] = [nums[right], nums[pivotIndex]];
+        
         // storeIndex keeps track of index where pivot should be placed
         let storeIndex = left;
 
