@@ -2,43 +2,43 @@
  * @param {string} s
  * @return {number}
  */
-var romanToInt = function(s) {
-    let sum = 0;
-    // use two pointers to keep track of the current and previous values
-    let prev = 0;
-    let curr = 0;
+var romanToInt = function (s) {
+	const map = {
+		I: 1,
+		V: 5,
+		X: 10,
+		L: 50,
+		C: 100,
+		D: 500,
+		M: 1000,
+	};
 
-    for (let i = 0; i < s.length; i++) {
-        switch (s[i]) {
-            case 'I':
-                curr = 1;
-                break;
-            case 'V':
-                curr = 5;
-                break;
-            case 'X':
-                curr = 10;
-                break;
-            case 'L':
-                curr = 50;
-                break;
-            case 'C':
-                curr = 100;
-                break;
-            case 'D':
-                curr = 500;
-                break;
-            case 'M':
-                curr = 1000;
-                break;
-        }
-        sum += curr;
-        // if the current value is greater than the previous value, subtract the previous value twice (to account for instsances like IV, IX, etc.)
-        if (curr > prev) {
-            sum -= 2 * prev;
-        }
-        // set new previous
-        prev = curr;
-    }
-    return sum;
+	let i = 0;
+	let count = 0;
+
+	while (i < s.length) {
+		let currVal = map[s[i]];
+		let num = 0;
+
+		// if there is a next element
+		if (i < s.length - 1) {
+			let nextVal = map[s[i + 1]];
+
+			// if the next numeral is larger than the current, subtract current from next
+			if (nextVal > currVal) {
+				num = nextVal - currVal;
+				// skip over next numeral when iterating
+				i += 2;
+			} else {
+				num = currVal;
+				i++;
+			}
+		} else {
+			num = currVal;
+			i++;
+		}
+		count += num;
+	}
+
+	return count;
 };
