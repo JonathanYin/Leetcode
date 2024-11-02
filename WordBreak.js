@@ -14,6 +14,7 @@ var wordBreak = function (s, wordDict) {
 
 	for (let i = 1; i <= s.length; i++) {
 		for (let j = 0; j < i; j++) {
+			// if we have the current substring in our wordDict, and we are able to form the string leading up to this substring
 			if (dp[j] && set.has(s.substring(j, i))) {
 				dp[i] = true;
 				break;
